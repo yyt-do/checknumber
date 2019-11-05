@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charest=uft-8" />
+    <title>suanfa</title>
+    <style type="text/css"></style>
+    
+
+<body>
+    <p id="num">asdasdasdasdas</p>
+    <script type="text/javascript">
+        var a = document.getElementById("num"), numStr, numArr, hashNum = {}, max = 0, hashMax;
+        numStr = a.innerHTML;//"asdasdasdasdas"
+      //  document.write(a.innerHTML);
+        numArr = numStr.split("");//["a", "s", "d", "a", "s", "d", "a", "s", "d", "a", "s", "d", "a", "s"]
+        for (var i = 0; i < numArr.length; i++) {
+            if (hashNum[numArr[i]]) {
+                hashNum[numArr[i]] += 1;
+            } else {
+                hashNum[numArr[i]] = 1;
+            }
+        }
+        //Object {a: 5, s: 5, d: 4}
+        for (var x in hashNum) {
+            if (max < hashNum[x]) {
+                hashMax = {};//初始化
+                max = hashNum[x];
+                hashMax[x] = max;
+            } else if (max == hashNum[x]) {
+                max = hashNum[x];
+                hashMax[x] = max;
+            }
+        }
+        var s = "";
+        for (var y in hashMax) {
+            s += '最大出现' + y + ':' + hashMax[y] + '';
+        }
+        alert(s)
+    </script>
+
+</body>
+
+</html>
